@@ -8,7 +8,7 @@ import java.lang.annotation.*;
  */
 @Documented
 @Target(ElementType.TYPE)
-@Retention(RetentionPolicy.SOURCE)
+@Retention(RetentionPolicy.RUNTIME)
 public @interface TableName {
     String value();
 }

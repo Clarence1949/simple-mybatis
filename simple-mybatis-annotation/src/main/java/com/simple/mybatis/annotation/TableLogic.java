@@ -8,6 +8,7 @@ import java.lang.annotation.*;
  */
 @Documented
 @Target(ElementType.FIELD)
-@Retention(RetentionPolicy.SOURCE)
+@Retention(RetentionPolicy.RUNTIME)
 public @interface TableLogic {
+    String value() default "";
 }
