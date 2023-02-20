@@ -10,10 +10,22 @@ import lombok.experimental.UtilityClass;
  */
 @UtilityClass
 public class Wrappers {
+    /**
+     * lambda查询包装类
+     *
+     * @param <T>
+     * @return
+     */
     public <T> ILambdaQuery<T> lambdaQuery() {
         return new LambdaQueryImpl<>();
     }
 
+    /**
+     * 查询包装类
+     *
+     * @param <T>
+     * @return
+     */
     public <T> IQuery<T> query() {
         return new QueryImpl<>();
     }

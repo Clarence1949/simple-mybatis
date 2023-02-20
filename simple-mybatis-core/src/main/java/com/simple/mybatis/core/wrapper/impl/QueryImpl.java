@@ -2,6 +2,7 @@ package com.simple.mybatis.core.wrapper.impl;
 
 import cn.hutool.core.text.StrFormatter;
 import cn.hutool.core.util.StrUtil;
+import com.simple.mybatis.core.wrapper.ILambdaQuery;
 import com.simple.mybatis.core.wrapper.IQuery;
 
 import java.util.ArrayList;
@@ -24,6 +25,11 @@ public class QueryImpl<T> implements IQuery<T> {
     @Override
     public List<String> getQuerySqlSegments() {
         return querySqlSegments;
+    }
+
+    @Override
+    public ILambdaQuery<T> lambdaQuery() {
+        return (ILambdaQuery<T>) this;
     }
 
     @Override

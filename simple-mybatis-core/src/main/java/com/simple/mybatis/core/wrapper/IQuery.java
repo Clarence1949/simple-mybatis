@@ -1,19 +1,13 @@
 package com.simple.mybatis.core.wrapper;
 
 import java.util.Collection;
-import java.util.List;
 
 /**
  * @author FanXing
  * @date 2023年02月19日 22:57
  */
-public interface IQuery<T> {
-    /**
-     * 获取查询SQL片段集合
-     *
-     * @return
-     */
-    List<String> getQuerySqlSegments();
+public interface IQuery<T> extends Wrapper<T> {
+    ILambdaQuery<T> lambdaQuery();
 
     /**
      * 等于

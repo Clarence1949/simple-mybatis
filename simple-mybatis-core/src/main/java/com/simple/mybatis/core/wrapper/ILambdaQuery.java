@@ -8,7 +8,7 @@ import java.util.Collection;
  * @author FanXing
  * @date 2023年02月19日 13:37
  */
-public interface ILambdaQuery<T> extends IQuery<T> {
+public interface ILambdaQuery<T> extends Wrapper<T> {
 
     /**
      * 等于
@@ -19,7 +19,7 @@ public interface ILambdaQuery<T> extends IQuery<T> {
      * @param <R>
      * @return
      */
-    <R> IQuery<T> eq(Boolean condition, SFunction<T, R> property, R value);
+    <R> ILambdaQuery<T> eq(Boolean condition, SFunction<T, R> property, R value);
 
     /**
      * 不等于
@@ -30,7 +30,7 @@ public interface ILambdaQuery<T> extends IQuery<T> {
      * @param <R>
      * @return
      */
-    <R> IQuery<T> ne(Boolean condition, SFunction<T, R> property, R value);
+    <R> ILambdaQuery<T> ne(Boolean condition, SFunction<T, R> property, R value);
 
     /**
      * 大于
@@ -41,7 +41,7 @@ public interface ILambdaQuery<T> extends IQuery<T> {
      * @param <R>
      * @return
      */
-    <R> IQuery<T> gt(Boolean condition, SFunction<T, R> property, R value);
+    <R> ILambdaQuery<T> gt(Boolean condition, SFunction<T, R> property, R value);
 
     /**
      * 大于等于
@@ -52,7 +52,7 @@ public interface ILambdaQuery<T> extends IQuery<T> {
      * @param <R>
      * @return
      */
-    <R> IQuery<T> ge(Boolean condition, SFunction<T, R> property, R value);
+    <R> ILambdaQuery<T> ge(Boolean condition, SFunction<T, R> property, R value);
 
     /**
      * 小于
@@ -63,7 +63,7 @@ public interface ILambdaQuery<T> extends IQuery<T> {
      * @param <R>
      * @return
      */
-    <R> IQuery<T> lt(Boolean condition, SFunction<T, R> property, R value);
+    <R> ILambdaQuery<T> lt(Boolean condition, SFunction<T, R> property, R value);
 
     /**
      * 小于等于
@@ -74,7 +74,7 @@ public interface ILambdaQuery<T> extends IQuery<T> {
      * @param <R>
      * @return
      */
-    <R> IQuery<T> le(Boolean condition, SFunction<T, R> property, R value);
+    <R> ILambdaQuery<T> le(Boolean condition, SFunction<T, R> property, R value);
 
     /**
      * 介于两值之间
@@ -86,7 +86,7 @@ public interface ILambdaQuery<T> extends IQuery<T> {
      * @param <R>
      * @return
      */
-    <R> IQuery<T> between(Boolean condition, SFunction<T, R> property, R leftVal, R rightVal);
+    <R> ILambdaQuery<T> between(Boolean condition, SFunction<T, R> property, R leftVal, R rightVal);
 
     /**
      * LIKE '%VAL%'
@@ -97,7 +97,7 @@ public interface ILambdaQuery<T> extends IQuery<T> {
      * @param <R>
      * @return
      */
-    <R> IQuery<T> like(Boolean condition, SFunction<T, R> property, R value);
+    <R> ILambdaQuery<T> like(Boolean condition, SFunction<T, R> property, R value);
 
     /**
      * NOT LIKE '%VAL%'
@@ -108,7 +108,7 @@ public interface ILambdaQuery<T> extends IQuery<T> {
      * @param <R>
      * @return
      */
-    <R> IQuery<T> notLike(Boolean condition, SFunction<T, R> property, R value);
+    <R> ILambdaQuery<T> notLike(Boolean condition, SFunction<T, R> property, R value);
 
     /**
      * LIKE '%VAL'
@@ -119,7 +119,7 @@ public interface ILambdaQuery<T> extends IQuery<T> {
      * @param <R>
      * @return
      */
-    <R> IQuery<T> likeLeft(Boolean condition, SFunction<T, R> property, R value);
+    <R> ILambdaQuery<T> likeLeft(Boolean condition, SFunction<T, R> property, R value);
 
     /**
      * LIKE 'VAL%'
@@ -130,7 +130,7 @@ public interface ILambdaQuery<T> extends IQuery<T> {
      * @param <R>
      * @return
      */
-    <R> IQuery<T> likeRight(Boolean condition, SFunction<T, R> property, R value);
+    <R> ILambdaQuery<T> likeRight(Boolean condition, SFunction<T, R> property, R value);
 
     /**
      * IS NULL
@@ -140,7 +140,7 @@ public interface ILambdaQuery<T> extends IQuery<T> {
      * @param <R>
      * @return
      */
-    <R> IQuery<T> isNull(Boolean condition, SFunction<T, R> property);
+    <R> ILambdaQuery<T> isNull(Boolean condition, SFunction<T, R> property);
 
     /**
      * IS NOT NULL
@@ -150,7 +150,7 @@ public interface ILambdaQuery<T> extends IQuery<T> {
      * @param <R>
      * @return
      */
-    <R> IQuery<T> isNotNull(Boolean condition, SFunction<T, R> property);
+    <R> ILambdaQuery<T> isNotNull(Boolean condition, SFunction<T, R> property);
 
     /**
      * IN (...)
@@ -161,6 +161,6 @@ public interface ILambdaQuery<T> extends IQuery<T> {
      * @param <R>
      * @return
      */
-    <R> IQuery<T> in(Boolean condition, SFunction<T, R> property, Collection<R> values);
+    <R> ILambdaQuery<T> in(Boolean condition, SFunction<T, R> property, Collection<R> values);
 
 }
