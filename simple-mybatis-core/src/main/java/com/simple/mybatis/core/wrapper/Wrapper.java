@@ -13,4 +13,6 @@ public interface Wrapper<T> {
      * @return
      */
     List<String> getQuerySqlSegments();
+
+    Class getEntityClass();
 }

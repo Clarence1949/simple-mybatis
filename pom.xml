@@ -13,6 +13,7 @@
         <module>simple-mybatis-annotation-process</module>
         <module>simple-mybatis-springboot-starter</module>
         <module>simple-mybatis-sample</module>
+        <module>simple-mybatis-core</module>
     </modules>
 
     <properties>
@@ -21,6 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <mybatis-starter.version>3.0.1</mybatis-starter.version>
+        <pagehelper-starter.version>1.4.6</pagehelper-starter.version>
 
         <spring.boot.version>2.7.8</spring.boot.version>
         <knife4j.version>4.0.0</knife4j.version>
@@ -57,6 +59,11 @@
             </dependency>
             <dependency>
                 <groupId>com.simple.mybatis</groupId>
+                <artifactId>simple-mybatis-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.simple.mybatis</groupId>
                 <artifactId>simple-mybatis-springboot-starter</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -65,6 +72,11 @@
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper-starter.version}</version>
             </dependency>
 
             <dependency>

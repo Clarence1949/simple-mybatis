@@ -20,6 +20,10 @@ public class Wrappers {
         return new LambdaQueryImpl<>();
     }
 
+    public <T> ILambdaQuery<T> lambdaQuery(T entity) {
+        return new LambdaQueryImpl<>(entity);
+    }
+
     /**
      * 查询包装类
      *
@@ -28,5 +32,9 @@ public class Wrappers {
      */
     public <T> IQuery<T> query() {
         return new QueryImpl<>();
+    }
+
+    public <T> IQuery<T> query(T entity) {
+        return new QueryImpl<>(entity);
     }
 }

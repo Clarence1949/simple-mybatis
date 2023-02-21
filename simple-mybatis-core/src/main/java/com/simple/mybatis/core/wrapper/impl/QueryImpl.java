@@ -1,13 +1,12 @@
 package com.simple.mybatis.core.wrapper.impl;
 
+import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.text.StrFormatter;
 import cn.hutool.core.util.StrUtil;
 import com.simple.mybatis.core.wrapper.ILambdaQuery;
 import com.simple.mybatis.core.wrapper.IQuery;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 import java.util.function.Supplier;
 
 /**
@@ -16,6 +15,24 @@ import java.util.function.Supplier;
  */
 public class QueryImpl<T> implements IQuery<T> {
     private final List<String> querySqlSegments = new ArrayList<>();
+    protected T entity;
+    protected Class<T> entityClazz;
+
+    public QueryImpl() {
+        this(null);
+    }
+
+    public QueryImpl(T entity) {
+        this.entity = entity;
+        if (Objects.nonNull(entity)) {
+            entityClazz = (Class<T>) entity.getClass();
+        }
+    }
+
+    @Override
+    public Class getEntityClass() {
+        return entityClazz;
+    }
 
     private IQuery<T> addSqlSegment(Boolean condition, Supplier<String> sqlSegment) {
         if (condition) querySqlSegments.add(sqlSegment.get());
@@ -24,6 +41,12 @@ public class QueryImpl<T> implements IQuery<T> {
 
     @Override
     public List<String> getQuerySqlSegments() {
+        if (Objects.nonNull(entity)) {
+            Map<String, Object> map = BeanUtil.beanToMap(entity, false, true);
+            map.entrySet().forEach(entry -> {
+                eq(true, entry.getKey(), entry.getValue());
+            });
+        }
         return querySqlSegments;
     }
 

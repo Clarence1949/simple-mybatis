@@ -11,6 +11,13 @@ import java.util.Collection;
  * @date 2023年02月19日 13:59
  */
 public class LambdaQueryImpl<T> extends QueryImpl<T> implements ILambdaQuery<T> {
+    public LambdaQueryImpl() {
+        this(null);
+    }
+
+    public LambdaQueryImpl(T entity) {
+        super(entity);
+    }
 
     @Override
     public <R> ILambdaQuery<T> eq(Boolean condition, SFunction<T, R> property, R value) {
